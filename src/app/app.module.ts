@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { CanvasPageComponent } from './components/canvas-page/canvas-page.component';
+import { CanvasComponent } from './components/canvas/canvas.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     CategoryListComponent,
     NavbarComponent,
     HomePageComponent,
+    CanvasPageComponent,
+    CanvasComponent, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

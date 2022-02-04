@@ -1,0 +1,26 @@
+<div class ="container">
+    <div class ="row">
+        <div class="col-md-9">
+            <h2 class="draw">Draw any Image!</h2> 
+            <app-canvas id = "canvas"></app-canvas>
+            <div class="row">
+                <div class="col-md-11">
+                    <form>
+                        <button id="clearCanvas" type="button" class="btn btn-outline-secondary" 
+                        (click)="clearCanvas()">Clear</button>
+                    </form>
+                </div>
+                    <div class="col-md-1">
+                        <form>
+                        <button id="submit" type="button" class="btn btn-success" 
+                        (click)="submitDrawing()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+               
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    
+</div>

@@ -12,7 +12,11 @@ import { GooglevisionService } from '../../services/googlevision.service';
 })
 export class CanvasPageComponent implements OnInit {
   //api key params
-  googleResponse = {}
+  isLoaded = {}
+  googleResponse = [{"description": "null",
+                  "mid": "null",
+                  "score": 0,
+                  "topicality": 0}]
 
   constructor(private googlevision: GooglevisionService) { }
 
@@ -30,6 +34,12 @@ export class CanvasPageComponent implements OnInit {
     var canvas = document.getElementById('appCanvas') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
     context!.clearRect(0, 0, canvas.width, canvas.height);
+    //Empty means there is no data to process
+    this.  googleResponse = [{"description": "null",
+                        "mid": "null",
+                        "score": 0,
+                        "topicality": 0}]
+    this.isLoaded = {}
     console.log("cleared")
   }
   //Submits the saved drawing to google vision for analysis
@@ -37,8 +47,11 @@ export class CanvasPageComponent implements OnInit {
     var image = this.saveImage();
       this.googlevision.submitDrawingToGoogle(image).then((response) =>
       {
-        console.log(response);
-        this.googleResponse = response;
+        var res = JSON.stringify(response);
+        var resJson = JSON.parse(res);
+        this.googleResponse = resJson.responses[0].labelAnnotations
+        this.isLoaded = {"filler": 1};
+        console.log(this.googleResponse);
       })
   }
 

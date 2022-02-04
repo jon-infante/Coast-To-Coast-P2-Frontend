@@ -27,7 +27,6 @@ export class GooglevisionService {
   }
   apikey = ""
   key = this.http.get("assets/apikey.txt" , { responseType: 'text' }).subscribe(data => {
-    console.log(data);
     this.apikey = data;
   })  
 

@@ -16,11 +16,19 @@
                         (click)="submitDrawing()">Submit</button>
                         </form>
                     </div>
-                </div>
-               
+                </div>           
         </div>
         <div class="col-md-3">
+            <div *ngIf="(isLoaded | json) != '{}'; else notLoaded">
+                <div class="" *ngFor="let response of googleResponse">
+                            {{response.description}}
+                            {{response.score}}
+                        </div>
+                    </div>
+            </div>
+            <ng-template #notLoaded>
+                <div>
+                </div>
+            </ng-template>
         </div>
     </div>
-    
-</div>

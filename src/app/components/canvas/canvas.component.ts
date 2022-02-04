@@ -4,15 +4,15 @@ import { switchMap, takeUntil, pairwise } from 'rxjs/operators'
 
 @Component({
   selector: 'app-canvas',
-  template: '<canvas #canvas></canvas>',
-  styles: ['canvas { border: 1px solid #000; }']
+  templateUrl: './canvas.component.html',
+  styleUrls: ['./canvas.component.css']
 })
 export class CanvasComponent implements AfterViewInit {
 
   @ViewChild('canvas') public canvas!: ElementRef;
 
-  @Input() public width = 400;
-  @Input() public height = 400;
+  @Input() public width = 980;
+  @Input() public height = 500;
 
   private cx!: CanvasRenderingContext2D | null;
 

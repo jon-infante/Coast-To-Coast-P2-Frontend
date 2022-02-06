@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
+
 import { Drawing } from '../models/drawing';
 
 
@@ -9,12 +10,15 @@ import { Drawing } from '../models/drawing';
 })
 export class DrawingapiService {
 
-  private id = 3
-  private drawingUrl = `http://webapi-prod.us-west-2.elasticbeanstalk.com/api/Drawing/player/${this.id}`
+  constructor(private http: HttpClient) { }
 
-  constructor(private http : HttpClient) { 
+  private apiUrl = 'http://webapi-prod.us-west-2.elasticbeanstalk.com/api/Drawing'
+
+  addDrawing(drawingToAdd: Drawing): Promise<Drawing>{
+    return firstValueFrom(this.http.post<Drawing>(`${this.apiUrl}`, drawingToAdd))
   }
-  getAllDrawingByPlayerID() : Observable<Drawing[]>{
-    return this.http.get<Drawing[]>(this.drawingUrl);
+
+  getAllDrawingsByPlayerID(id: number): Promise<any>{
+    return firstValueFrom(this.http.get<any>(`${this.apiUrl}/player/${id}`))
   }
 }

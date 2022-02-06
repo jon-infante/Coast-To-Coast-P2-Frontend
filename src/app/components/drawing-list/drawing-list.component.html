@@ -1,38 +1,12 @@
-<p>drawing-list works!</p>
-
-<div class = "container">
-    <table id="restaurant-table" class="table" *ngIf="allDrawings.length > 0 else noDrawing">
-        <thead class="table-header">
-            <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Street Address
-                </th>
-                <th>
-                    City
-                </th>
-                <th>
-                    State
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- *ngFor is one of angular's structural directives -->
-            <tr *ngFor="let drawing of allDrawings">
-                <td>{{drawing.ID}}</td>
-                <td>{{drawing.Keyword}}</td>
-                <td>{{drawing.WallPostID}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <ng-template #noDrawing>
-        <p id="no-resto">
-            No restaurants... why don't you go add one?
-        </p>
-    </ng-template>
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let drawing of allDrawings">
+            <img class="card-img-top" src="{{drawing.BucketImage}}"alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{drawing.Keyword}}</h5>
+                <p class="card-text">Google Response: </p>
+                <a href="#" class="btn btn-primary">Comments</a>
+        </div>
+    </div>
+    </div>
 </div>

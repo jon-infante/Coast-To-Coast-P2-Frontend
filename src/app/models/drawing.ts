@@ -11,5 +11,4 @@ export type Drawing = {
     GoogleResponse: string;
     Likes: Like[];
     Date: string;
-
 }

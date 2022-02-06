@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CanvasPageComponent } from './components/canvas-page/canvas-page.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
+import { DrawingListComponent } from './components/drawing-list/drawing-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CanvasComponent } from './components/canvas/canvas.component';
     NavbarComponent,
     HomePageComponent,
     CanvasPageComponent,
-    CanvasComponent, 
+    CanvasComponent,
+    DrawingListComponent, 
   ],
   imports: [
     BrowserModule,

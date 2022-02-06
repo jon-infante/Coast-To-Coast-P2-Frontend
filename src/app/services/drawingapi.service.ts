@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
-
 import { Drawing } from '../models/drawing';
 
 
@@ -17,5 +16,9 @@ export class DrawingapiService {
 
   addDrawing(drawingToAdd: Drawing): Promise<Drawing>{
     return firstValueFrom(this.http.post<Drawing>(`${this.apiUrl}`, drawingToAdd))
+  }
+
+  getAllDrawingsByPlayerID(id: number): Promise<any>{
+    return firstValueFrom(this.http.get<any>(`${this.apiUrl}/player/${id}`))
   }
 }

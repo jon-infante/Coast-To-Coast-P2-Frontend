@@ -13,13 +13,13 @@
                     <div class="col-md-1">
                         <form>
                         <button id="submit" type="button" class="btn btn-success" 
-                        (click)="submitDrawing()">Submit</button>
+                        (click)="uploadImageToS3AndDatabase()">Submit</button>
                         </form>
                     </div>
                 </div>           
         </div>
         <div class="col-md-3">
-            <div *ngIf="(isLoaded | json) != '{}'; else notLoaded">
+            <div *ngIf="isLoaded; else notLoaded">
                 <div class="" *ngFor="let response of googleResponse">
                             {{response.description}}
                             {{response.score}}

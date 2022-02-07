@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { WallpostsService } from './wallposts.service';
+import { WallPostApiService } from './wall-post-api.service';
 
-describe('WallpostsService', () => {
-  let service: WallpostsService;
+describe('WallPostApiService', () => {
+  let service: WallPostApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(WallpostsService);
+    service = TestBed.inject(WallPostApiService);
   });
 
   it('should be created', () => {

@@ -3,13 +3,9 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="card col-4 p-1" *ngFor="let category of allCategories">
-            <div class="card">
-                <div class="card-header">
-                    {{category.CategoryName}}
-                </div>
-                <div class="card-body">
-                </div>
+        <div class="card" style="width: 18rem;" *ngFor="let category of allCategories">
+            <div class="card-body">
+                <h5 class="card-title">{{category.CategoryName}}</h5>
             </div>
         </div>
     </div>
@@ -44,21 +40,31 @@
     </style>
 </head>
 <body>
-    <h1>Categories</h1>
-    <ul class="fullclick">
-        <li>
-            <h2>Animals</h2>
-            <p>
-                View different animals to draw
-            </p>
-            <a href="wallpost.html" class="main"></a>
-        </li>
-        <li>
-            <h2>Objects</h2>
-            <p>
-                View different objects to draw
-            </p>
-            <a href="wallpost.html" class="main"></a>
-        </li>
-    </ul>
+    <div class="container">
+        <h1>Categories</h1>
+        <ul class="fullclick">
+            <li>
+                <h2>Animals</h2>
+                <p>
+                    View different animals to draw
+                </p>
+                <a href="wallpost" class="main"></a>
+            </li>
+            <li>
+                <h2>Objects</h2>
+                <p>
+                    View different objects to draw
+                </p>
+                <a href="wallpost" class="main"></a>
+            </li>
+            <li>
+                <div class="card" style="width: 18rem;" *ngFor="let category of allCategories">
+                    <div class="card-body">
+                        <h5 class="card-title">{{category.CategoryName}}</h5>
+                    </div>
+                </div>
+                <a href="wallpost" class="main"></a>
+            </li>
+        </ul>
+    </div>    
 </body>

@@ -9,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class WallPostApiService {
 
   constructor(private http: HttpClient) {
-    GetAllWallPosts() : (Promise<Wallpost[]>){
-      firstValueFrom(this.http.get<Wallpost[]>("http://webapi-prod.us-west-2.elasticbeanstalk.com/api/wallpost"))
-    }
+  }
+  GetAllWallPosts() : Promise<any>{
+    return firstValueFrom(this.http.get<any>("http://webapi-prod.us-west-2.elasticbeanstalk.com/api/wallpost"))
   }
 }

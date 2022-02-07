@@ -10,15 +10,27 @@ import { WallPostApiService } from 'src/app/services/wall-post-api.service';
 export class WallpostsComponent implements OnInit {
 
   constructor(private apiService: WallPostApiService) {
-
-    
   }
+  allWallpost: Wallpost[] = [];
+
 
   ngOnInit(): void {
-    this.apiService.GetAllWallPosts().then((res) => 
+    this.apiService.GetAllWallPosts().then((wallpostArray) => 
     {
-      console.log(res);
+      wallpostArray.forEach((wallpost: any) => {
+        var castedWallpost: Wallpost = {
+          ID: wallpost.id,
+          CategoryID: wallpost.categoryID,
+          Keyword: wallpost.keyword,
+          Drawings: wallpost.drawings
+        }
+        this.allWallpost.push(castedWallpost)
+      })
+      console.log(wallpostArray)
     })
   }
-
 }
+
+  
+
+

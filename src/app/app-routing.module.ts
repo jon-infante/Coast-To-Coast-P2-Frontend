@@ -4,6 +4,7 @@ import { CanvasPageComponent } from './components/canvas-page/canvas-page.compon
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { DrawingListComponent } from './components/drawing-list/drawing-list.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { WallpostsComponent } from './components/wallposts/wallposts.component';
 
 const routes: Routes = [
   {
@@ -23,10 +24,15 @@ const routes: Routes = [
     component: DrawingListComponent
   },
   {
+    path: 'wallpostlist',
+    component: WallpostsComponent
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   }
+
 
 ];
 

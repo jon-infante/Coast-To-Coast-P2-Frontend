@@ -10,6 +10,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { CanvasPageComponent } from './components/canvas-page/canvas-page.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
 import { WallpostsComponent } from './components/wallposts/wallposts.component';
+import { DrawingListComponent } from './components/drawing-list/drawing-list.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { WallpostsComponent } from './components/wallposts/wallposts.component';
     CanvasPageComponent,
     CanvasComponent,
     WallpostsComponent, 
+    DrawingListComponent, 
   ],
   imports: [
     BrowserModule,

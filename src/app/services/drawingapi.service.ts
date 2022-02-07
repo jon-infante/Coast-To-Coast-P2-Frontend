@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-
 import { Drawing } from '../models/drawing';
+import { environment } from 'src/environments/environment';
+
 
 
 @Injectable({
@@ -12,13 +13,13 @@ export class DrawingapiService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'http://webapi-prod.us-west-2.elasticbeanstalk.com/api/Drawing'
+  private apiUrl = environment.droogleAPIRootUrl;
 
   addDrawing(drawingToAdd: Drawing): Promise<Drawing>{
-    return firstValueFrom(this.http.post<Drawing>(`${this.apiUrl}`, drawingToAdd))
+    return firstValueFrom(this.http.post<Drawing>(`${this.apiUrl}/Drawing`, drawingToAdd))
   }
 
   getAllDrawingsByPlayerID(id: number): Promise<any>{
-    return firstValueFrom(this.http.get<any>(`${this.apiUrl}/player/${id}`))
+    return firstValueFrom(this.http.get<any>(`${this.apiUrl}/Drawing/player/${id}`))
   }
 }

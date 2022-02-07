@@ -13,13 +13,18 @@ export class CategoryListComponent implements OnInit {
 
   allCategories: Category[] = [];
 
-
   ngOnInit(): void {
     this.apiService.getAllCategories().then((categoryArray) => 
     {
-      console.log(categoryArray);
-      this.allCategories = categoryArray;
+      categoryArray.forEach((category: any) => {
+        var castedCategory: Category = {
+          ID: category.id,
+          CategoryName: category.categoryName,
+          WallPosts: category.wallPosts,
+        }
+        this.allCategories.push(castedCategory)
+      })
+      console.log(this.allCategories);
     })
   }
-
 }

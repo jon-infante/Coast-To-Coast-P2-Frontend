@@ -9,12 +9,12 @@ import { Category } from '../models/category';
   providedIn: 'root'
 })
 export class CategoryapiService {
-  private apiUrl = 'http://webapi-prod.us-west-2.elasticbeanstalk.com/api/category'
-
-
+  
   constructor(private http: HttpClient) { }
-  getAllCategories() : Promise<Category[]>{
-    return firstValueFrom(this.http.get<Category[]>(`${this.apiUrl}`))
+
+  private apiUrl = 'http://webapi-prod.us-west-2.elasticbeanstalk.com/api/Category'
+  
+  getAllCategories() : Promise<any>{
+    return firstValueFrom(this.http.get<any>(`${this.apiUrl}`))
   }
 }
-

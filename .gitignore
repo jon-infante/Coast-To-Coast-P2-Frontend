@@ -2,6 +2,7 @@
 
 # Custom Ignore
 apikey.txt
+awssecretkey.txt
 
 # Compiled output
 /dist

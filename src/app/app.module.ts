@@ -9,6 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CanvasPageComponent } from './components/canvas-page/canvas-page.component';
 import { CanvasComponent } from './components/canvas/canvas.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment } from 'src/environments/environment';
+import { AuthBtnComponent } from './auth-btn/auth-btn.component';
 
 @NgModule({
   declarations: [
@@ -17,9 +20,14 @@ import { CanvasComponent } from './components/canvas/canvas.component';
     NavbarComponent,
     HomePageComponent,
     CanvasPageComponent,
-    CanvasComponent, 
+    CanvasComponent,
+    AuthBtnComponent, 
   ],
   imports: [
+    AuthModule.forRoot({
+      domain: environment.authDomain,
+      clientId: environment.authClientId
+    }),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

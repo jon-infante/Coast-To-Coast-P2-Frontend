@@ -1,16 +1,70 @@
-<div class="container">
+<!-- <div class="container">
     <h1>Categories</h1>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let category of allCategories">
+            <div class="card-body">
+                <h5 class="card-title">{{category.CategoryName}}</h5>
+            </div>
+        </div>
+    </div>
+</div> -->
+<head>
+    <link rel="stylesheet" href="category-list.component.css">
+    <style>
+        .fullclick {
+            margin: 1em 0;
+            padding: 0;
+            max-width: 25em;
+        }
+        .fullclick li {
+            list-style: none;
+            margin: 1em 0;
+            padding: 20px 10px;
+            background: #e7e7e7;
+            position: relative;
+        }
+        .fullclick li a.main::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: ' ';
+        }
+        .fullclick li:hover, .fullclick li:focus-within {
+            background:#d1d1d1;
+            box-shadow: 0px 3px 6px #000;
+        }
+    </style>
+</head>
+<body>
     <div class="container">
-        <div class="row">
-            <div class="card col-4 p-1" *ngFor="let category of allCategories">
-                <div class="card">
-                    <div class="card-header">
-                        {{category.CategoryName}}
-                    </div>
+        <h1>Categories</h1>
+        <ul class="fullclick">
+            <li>
+                <h2>Animals</h2>
+                <p>
+                    View different animals to draw
+                </p>
+                <a href="wallpost" class="main"></a>
+            </li>
+            <li>
+                <h2>Objects</h2>
+                <p>
+                    View different objects to draw
+                </p>
+                <a href="wallpost" class="main"></a>
+            </li>
+            <li>
+                <div class="card" style="width: 18rem;" *ngFor="let category of allCategories">
                     <div class="card-body">
-                    </div>
+                        <h5 class="card-title">{{category.CategoryName}}</h5>
                     </div>
                 </div>
-            </div>
-</div>
+                <a href="wallpost" class="main"></a>
+            </li>
+        </ul>
+    </div>    
+</body>

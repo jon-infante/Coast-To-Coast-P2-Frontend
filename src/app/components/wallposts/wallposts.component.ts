@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Wallpost } from 'src/app/models/wallpost';
 import { WallPostApiService } from 'src/app/services/wall-post-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wallposts',
@@ -9,7 +10,7 @@ import { WallPostApiService } from 'src/app/services/wall-post-api.service';
 })
 export class WallpostsComponent implements OnInit {
 
-  constructor(private apiService: WallPostApiService) {
+  constructor(private apiService: WallPostApiService, private router:Router) {
   }
   allWallpost: Wallpost[] = [];
 
@@ -28,6 +29,11 @@ export class WallpostsComponent implements OnInit {
       })
       console.log(wallpostArray)
     })
+  }
+
+  goToCanvas(id: any): void
+  {
+    this.router.navigate([`canvas/${id}`],);
   }
 }
 

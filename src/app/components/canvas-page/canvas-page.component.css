@@ -1,11 +1,72 @@
 .draw {
     text-align: center;
+    font-size: 30px;
+    font-family: segoe ui, helvetica, sans-serif;
 }
 
-/* #clearCanvas {
-    float: left;
+.fullclick {
+    cursor: pointer;
+    margin: 1em 0;
+    padding: 0;
+    max-width: 25em;
+}
+.fullclick li {
+    text-align:  center;
+    list-style: none;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    background: #535151;
+    color: white;
+    position: relative;
+}
+.fullclick li a.main::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+}
+.fullclick li:hover, .fullclick li:focus-within {
+    background:#7c7b7b;
+    box-shadow: 0px 3px 6px #000;
 }
 
-#submit {
-    margin-left: 500px;
-} */
+.fullclick2 {
+    cursor: pointer;
+    margin: 1em 0;
+    padding: 0;
+    max-width: 25em;
+}
+.fullclick2 li {
+    text-align: center;
+    list-style: none;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    background: #1d8b22;
+    color: white;
+    position: relative;
+}
+.fullclick2 li a.main::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+}
+.fullclick2 li:hover, .fullclick li:focus-within {
+    background:#4ab933;
+    box-shadow: 0px 3px 6px #000;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0 0 .5em 0;
+}
+
+h2 {
+    font-size: 1.3em;
+    margin: 0 0 .5em 0;
+    font-family: Arial, sans-serif;
+}

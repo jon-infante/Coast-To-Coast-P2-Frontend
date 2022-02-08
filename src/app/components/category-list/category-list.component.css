@@ -24,15 +24,10 @@ h2 {
     margin: 10px;
 }
 
-.card-group{
-    width: 100%;
-}
-
 .card{
-    width: max-content;
+    width: 800px;
     margin: 0 50px;
     text-align: center;
-    flex-wrap: wrap;
     overflow: hidden;
 }
 
@@ -42,8 +37,7 @@ h2 {
 
 .card-body{
     flex: none;
-    flex-shrink: 1;
-    flex-wrap: wrap;
+
     padding: 0;
     margin-bottom: 20px;
     overflow: hidden;

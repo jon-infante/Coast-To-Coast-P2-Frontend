@@ -20,6 +20,7 @@ export class CanvasPageComponent implements OnInit {
     private route: ActivatedRoute) { }
 
     keywordSelected = "any Image!"
+    pageLoaded = false;
     isLoaded = false;
     googleResponse = [{"description": "null",
                     "mid": "null",
@@ -47,11 +48,12 @@ export class CanvasPageComponent implements OnInit {
         this.wallPost.Drawings = wallpost.drawings,
         this.wallPost.Keyword = wallpost.keyword
         this.keywordSelected = "a " + this.wallPost.Keyword + "!"
-    }
-    )
+        this.pageLoaded = true;
+      })
     }
     else{
       this.wallPostID = 2
+      this.pageLoaded = true;
     }
     });
   }

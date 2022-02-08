@@ -1,7 +1,14 @@
 <div class ="container">
     <div class ="row justify-content-center">
         <div class="col-md-auto">
+            <div *ngIf="pageLoaded; else pageNotLoaded">
             <div class="draw">Draw {{keywordSelected}}</div> 
+            </div>
+            <ng-template #pageNotLoaded>
+                <div>
+                    <h1> </h1>
+                </div>
+            </ng-template>
             <app-canvas id = "canvas"></app-canvas>
             <div class="row justify-content-center">
                 <div class="col-md-1 fullclick" (click)="clearCanvas()">
@@ -27,14 +34,23 @@
         <div class="col-md-3">
             <div *ngIf="isLoaded; else notLoaded">
                 <div class="" *ngFor="let response of googleResponse">
-                    <div class ="fullclick">
-                        <li>
-                            {{response.description}} | 
-                            {{response.score}}%
-                        </li>
-                        </div>
+                    <div *ngIf="wallPost.Keyword.toLowerCase() != response.description.toLowerCase(); else notSelectedKeyword">
+                        <div class ="fullclick">
+                            <li>
+                                {{response.description}} | 
+                                {{response.score}}%
+                            </li>
                         </div>
                     </div>
+                    <ng-template #notSelectedKeyword>
+                        <div class ="fullclick2">
+                            <li>
+                                {{response.description}} | 
+                                {{response.score}}%
+                            </li>
+                        </div>
+                    </ng-template>
+                </div>
             </div>
             <ng-template #notLoaded>
                 <div>

@@ -1,10 +1,13 @@
 <head>
     <link rel="stylesheet" href="category-list.component.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap" rel="stylesheet">
     <style>
         .fullclick {
             margin: 1em 0;
             padding: 0;
-            max-width: 25em;
+            /* max-width: 50em; */
         }
         .fullclick li {
             list-style: none;
@@ -22,39 +25,33 @@
             content: ' ';
         }
         .fullclick li:hover, .fullclick li:focus-within {
-            background:#d1d1d1;
+            background:#c3e239;
             box-shadow: 0px 3px 6px #000;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Categories</h1>
-        <ul class="fullclick">
-            <li>
-                <h2>Animals</h2>
-                <p>
-                    View different animals to draw
-                </p>
-                <a href="wallpost" class="main"></a>
-            </li>
-            <li>
-                <h2>Objects</h2>
-                <p>
-                    View different objects to draw
-                </p>
-                <a href="wallpost" class="main"></a>
-            </li>
-            <li>
-                <div class="card" style="width: 18rem;" *ngFor="let category of allCategories">
-                    <div class="card-body">
-                        <h5 class="card-title">{{category.CategoryName}}</h5>
-                    </div>
-                    <div *ngFor = "let wallpost of category.WallPosts">
-                        <a (click)="goToCanvas(wallpost.ID)">{{wallpost.Keyword}}</a>
+    <div class="container-fluid">
+        <h1 class="animation">Categories</h1>
+        <ul class="list-group">
+            <li class="d-flex justify-content-around">
+                <div class="card-group">
+                    <div class="card" *ngFor="let category of allCategories">
+                        <div class="card-body">
+                            <h2 class="card-header">{{category.CategoryName}}</h2>
+                        </div>
+                        <div class="card-text" *ngFor = "let wallpost of category.WallPosts">
+                            <h5>{{wallpost.Keyword}}</h5>
+                            <button class="btn draw">
+                                <a (click)="goToCanvas(wallpost.ID)" >Draw!</a>
+                            </button>
+                            <button class="btn draw">
+                                <a>View!</a>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </li>
         </ul>
-    </div>    
+    </div> 
 </body>

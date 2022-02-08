@@ -3,6 +3,9 @@ body {
     background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     margin: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -19,6 +22,8 @@ h2 {
 
 ul{
     list-style: none;
+    width: auto;
+    height: max-content;
 }
 
 li{
@@ -27,13 +32,22 @@ li{
 }
 .card-group{
     width: max-content;
+    
 }
 
 .card{
     width: 200px;
-    margin: 0 10px;
+    margin: 0 30px;
     text-align: center;
-    
+    align-items: center;   
+}
+
+.card-body{
+    flex: none;
+}
+
+.card-text{
+    align-items: center;
 }
 
 @keyframes jump {

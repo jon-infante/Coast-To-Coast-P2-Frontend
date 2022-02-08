@@ -45,15 +45,15 @@
 <body>
     <div class="container-fluid">
         <h1 class="animation">Categories</h1>
-        <ul>
-            <li>
-                <div class="card-group" class="row">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="card-group">
                     <div class="card" *ngFor="let category of allCategories">
                         <div class="card-body">
                             <h5 class="card-title">{{category.CategoryName}}</h5>
                         </div>
                         <div class="card-text" *ngFor = "let wallpost of category.WallPosts">
-                            <a (click)="goToCanvas(wallpost.ID)">{{wallpost.Keyword}}</a>
+                            <a (click)="goToCanvas(wallpost.ID)" >{{wallpost.Keyword}}</a>
                         </div>
                     </div>
 

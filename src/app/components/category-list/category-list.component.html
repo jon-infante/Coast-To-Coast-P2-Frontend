@@ -32,29 +32,15 @@
         <h1>Categories</h1>
         <ul class="fullclick">
             <li>
-                <h2>Animals</h2>
-                <p>
-                    View different animals to draw
-                </p>
-                <a href="wallpost" class="main"></a>
-            </li>
-            <li>
-                <h2>Objects</h2>
-                <p>
-                    View different objects to draw
-                </p>
-                <a href="wallpost" class="main"></a>
-            </li>
-            <li>
                 <div class="card" style="width: 18rem;" *ngFor="let category of allCategories">
                     <div class="card-body">
                         <h5 class="card-title">{{category.CategoryName}}</h5>
                     </div>
                     <div *ngFor = "let wallpost of category.WallPosts">
-                        <a (click)="goToCanvas(wallpost.ID)" class="btn btn-primary">{{wallpost.Keyword}}</a>
+                        <a (click)="goToCanvas(wallpost.ID)">{{wallpost.Keyword}}</a>
                     </div>
                 </div>
             </li>
         </ul>
-    </div>
+    </div>    
 </body>

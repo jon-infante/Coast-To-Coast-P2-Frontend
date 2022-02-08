@@ -157,6 +157,7 @@ export class CanvasPageComponent implements OnInit {
       Guess: googleResults[0],
       GoogleScore: googleResults[1],
       GoogleResponse: googleResults[2],
+      IsLiked: false,
       Likes: [],
       Date: date
     }

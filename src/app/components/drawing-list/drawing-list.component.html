@@ -5,8 +5,15 @@
             <div class="card-body">
                 <h5 class="card-title">{{drawing.Keyword}}</h5>
                 <p class="card-text">Google Response: {{drawing.GoogleResponse}}<br>Score: {{drawing.GoogleScore}} </p>
-                <p class="card-text"> </p>
+                <div class="row justify-content-center">
+                    <div class="col sm 1">
+                <button class="like-button" (click)="LikeDrawing(drawing)"[ngClass]="drawing.IsLiked ? 'liked' : ''"></button>
+                </div>
+                <div class="col sm 1">
                 <a href="#" class="btn btn-primary">Comments</a>
+            </div>
+
+            </div>
             </div>
         </div>
     </div>

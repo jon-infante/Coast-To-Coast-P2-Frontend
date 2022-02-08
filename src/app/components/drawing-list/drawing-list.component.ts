@@ -31,13 +31,18 @@ export class DrawingListComponent implements OnInit {
           GoogleResponse: drawing.googleResponse,
           Likes: drawing.likes,
           Date: drawing.date,
+          IsLiked: drawing.isLiked
         }
         this.allDrawings.push(castedDrawing)
       })
-      console.log (drawingArray)
       console.log(this.allDrawings)
     
     })
   }
+  LikeDrawing(drawing: Drawing){
+    drawing.IsLiked = !drawing.IsLiked
+    console.log(this.drawingapiService.updateDrawing(drawing))
+  } 
+
 
 }

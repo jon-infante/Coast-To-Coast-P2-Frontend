@@ -41,9 +41,9 @@ export class CategoryListComponent implements OnInit {
     })
   }
 
-  goToCanvas(keyword: any): void
+  goToCanvas(id: any): void
   {
-    this.router.navigate([`canvas/${keyword}`],);
+    this.router.navigate([`canvas/${id}`],);
   }
 
 }

@@ -15,6 +15,10 @@ const routes: Routes = [
     component: CategoryListComponent
   },
   {
+    path: 'canvas/:id',
+    component: CanvasPageComponent
+  },
+  {
     path: 'canvas',
     component: CanvasPageComponent
   },

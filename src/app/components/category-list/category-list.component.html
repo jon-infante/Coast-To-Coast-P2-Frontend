@@ -62,8 +62,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{category.CategoryName}}</h5>
                     </div>
+                    <div *ngFor = "let wallpost of category.WallPosts">
+                        <a (click)="goToCanvas(wallpost.ID)">{{wallpost.Keyword}}</a>
+                    </div>
                 </div>
-                <a href="wallpost" class="main"></a>
             </li>
         </ul>
     </div>    

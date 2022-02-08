@@ -22,4 +22,8 @@ export class DrawingapiService {
   getAllDrawingsByPlayerID(id: number): Promise<any>{
     return firstValueFrom(this.http.get<any>(`${this.apiUrl}/Drawing/player/${id}`))
   }
+
+  getAllDrawingsByWallPostID(id: number): Promise<any>{
+    return firstValueFrom(this.http.get<any>(`{this.apiUrl}/Drawing/wallpost/${id}`))
+  }
 }

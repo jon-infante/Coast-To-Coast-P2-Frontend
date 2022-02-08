@@ -24,6 +24,10 @@ export class DrawingapiService {
   }
 
   getAllDrawingsByWallPostID(id: number): Promise<any>{
-    return firstValueFrom(this.http.get<any>(`{this.apiUrl}/Drawing/wallpost/${id}`))
+    return firstValueFrom(this.http.get<any>(`${this.apiUrl}/Drawing/wallpost/${id}`))
+  }
+
+  updateDrawing(drawingToUpdate: Drawing){
+    return firstValueFrom(this.http.put<Drawing>(`${this.apiUrl}/Drawing`, drawingToUpdate))
   }
 }

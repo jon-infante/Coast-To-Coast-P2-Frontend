@@ -31,6 +31,4 @@ export class WallpostsComponent implements OnInit {
   }
 }
 
-  
-
 

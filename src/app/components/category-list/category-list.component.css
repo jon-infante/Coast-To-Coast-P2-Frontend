@@ -6,11 +6,50 @@ body {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 6em;
+    font-family: 'Londrina Sketch';
+    text-align: center;
     margin: 0 0 .5em 0;
 }
 
 h2 {
     font-size: 1.1em;
     margin: 0 0 .5em 0;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    position: absolute;
+    
+}
+.card-group{
+    width: max-content;
+}
+
+.card{
+    width: 200px;
+    margin: 0 10px;
+    text-align: center;
+    
+}
+
+@keyframes jump {
+    33% {
+        transform: translate(0, 0) rotateY(20deg);
+    }
+    50% {
+        
+        text-shadow: 0 0px #8fc0a9, 0 0px #84a9ac;
+    }
+    66.67% {
+        transform: translate(0, 0) rotateY(-20deg);
+    }
+}
+
+.animation{
+    animation: jump 2s ease-in-out 1s;
+    
 }

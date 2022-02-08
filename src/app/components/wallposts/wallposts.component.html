@@ -9,3 +9,15 @@
     </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let wallpost of allWallpost">
+            <div class="card-body">
+                <h5 class="card-title">{{wallpost.Keyword}}</h5>
+                <p class="card-text">Google Response: </p>
+                <a href="#" class="btn btn-primary">Comments</a>
+        </div>
+    </div>
+    </div>
+</div>

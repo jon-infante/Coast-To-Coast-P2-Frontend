@@ -6,11 +6,116 @@ body {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 10em;
+    font-family: 'Londrina Sketch';
+    text-align: center;
     margin: 0 0 .5em 0;
 }
 
 h2 {
-    font-size: 1.1em;
+    font-size: 2em;
     margin: 0 0 .5em 0;
+    font-family: 'Fuzzy Bubbles';
+    word-wrap: break-word;
+}
+
+.card-text{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+}
+
+.card-group{
+    width: 100%;
+}
+
+.card{
+    width: max-content;
+    margin: 0 50px;
+    text-align: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.card:hover{
+    box-shadow: 0px 3px 6px rgb(46, 178, 240);
+}
+
+.card-body{
+    flex: none;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.card-header{
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+.card-text a:hover{
+    color:blue;
+    cursor: pointer;
+}
+
+.btn.draw{
+    align-self: center;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+.btn:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+@keyframes jump {
+    33% {
+        transform: translate(0, 0) rotateY(20deg);
+    }
+    50% {
+        
+        text-shadow: 0 0px #8fc0a9, 0 0px #84a9ac;
+    }
+    66.67% {
+        transform: translate(0, 0) rotateY(-20deg);
+    }
+}
+
+.animation:hover{
+    transform: translate(0, 0) rotateY(20deg);
+}
+.animation{
+    animation: jump 2s ease-in-out 1s;
 }

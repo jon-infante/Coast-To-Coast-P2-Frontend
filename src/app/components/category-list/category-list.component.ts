@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../models/category';
-import { CategoryapiService } from '../../services/categoryapi.service';
 import { Wallpost } from '../../models/wallpost';
 import { Router } from '@angular/router';
+
+
+import { CategoryapiService } from '../../services/categoryapi.service';
 
 @Component({
   selector: 'category-list',

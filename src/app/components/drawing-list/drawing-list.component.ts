@@ -34,7 +34,9 @@ export class DrawingListComponent implements OnInit {
         }
         this.allDrawings.push(castedDrawing)
       })
+      console.log (drawingArray)
       console.log(this.allDrawings)
+    
     })
   }
 

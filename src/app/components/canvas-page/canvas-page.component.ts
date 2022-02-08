@@ -3,6 +3,9 @@ import { Amazons3Service } from 'src/app/services/amazons3.service';
 import { DrawingapiService } from 'src/app/services/drawingapi.service';
 import { GooglevisionService } from '../../services/googlevision.service';
 import { Drawing } from '../../models/drawing';
+import { Wallpost } from '../../models/wallpost'
+import { ActivatedRoute } from '@angular/router';
+import { WallpostapiService } from 'src/app/services/wallpostapi.service';
 
 @Component({
   selector: 'app-canvas-page',
@@ -11,16 +14,47 @@ import { Drawing } from '../../models/drawing';
 })
 export class CanvasPageComponent implements OnInit {
   //api key params
-  isLoaded = false;
-  googleResponse = [{"description": "null",
-                  "mid": "null",
-                  "score": 0,
-                  "topicality": 0}]
 
-  constructor(private googlevision: GooglevisionService, private amazons3: Amazons3Service, private drawingapi: DrawingapiService) { }
+  constructor(private googlevision: GooglevisionService, private amazons3: Amazons3Service, 
+    private drawingapi: DrawingapiService, private wallpostapi: WallpostapiService, 
+    private route: ActivatedRoute) { }
+
+    keywordSelected = "any Image!"
+    isLoaded = false;
+    googleResponse = [{"description": "null",
+                    "mid": "null",
+                    "score": 0,
+                    "topicality": 0}]
+
+    // Empty initializer for wallpost
+    wallPostID = 2;
+    wallPost: Wallpost = {'ID': 0,
+                          'CategoryID': 0,
+                          'Drawings': [],
+                          'Keyword': "null"                                
+                          }
 
   ngOnInit(){
+    this.route.params.subscribe(params => {
+    // setting header for canvas 
+
+    // extract the id from route params
+    this.wallPostID = +params['id']; // (+) converts string 'id' to a number
+    if(!isNaN(this.wallPostID)){
+    this.wallpostapi.getWallPostByID(this.wallPostID).then((wallpost) => {
+        this.wallPost.ID = wallpost.id,
+        this.wallPost.CategoryID = wallpost.categoryID,
+        this.wallPost.Drawings = wallpost.drawings,
+        this.wallPost.Keyword = wallpost.keyword
+        this.keywordSelected = "a " + this.wallPost.Keyword + "!"
     }
+    )
+    }
+    else{
+      this.wallPostID = 2
+    }
+    });
+  }
 
   //Saves the current canvas as data uri image
   saveImage(){
@@ -59,30 +93,70 @@ export class CanvasPageComponent implements OnInit {
   }
 
   //Submits the saved drawing to google vision for analysis
-  submitDrawing(image: any){
+  async submitDrawing(image: any){
+    return new Promise(resolve =>{
       this.googlevision.submitDrawingToGoogle(image).then((response: any) =>
       {
         var res = JSON.stringify(response);
         var resJson = JSON.parse(res);
-        this.googleResponse = resJson.responses[0].labelAnnotations
+        var labels = resJson.responses[0].labelAnnotations
+        labels.forEach((label: any) => {
+          label.score = (label.score * 100).toFixed(2)
+        })
+        this.googleResponse = labels
         this.isLoaded = true;
-        console.log(this.googleResponse);
+        resolve(this.googleResponse)
       })
+    })
   }
 
-  addDrawingToDatabase(imageBucketLink: any){
+  // Checks if the google responses matched the keyword
+  getGoogleScores(googleResponse: any){
+    console.log(googleResponse)
+      let googleGuess = false;
+      let googleScore = 0;
+      let googleSingleResponse = "null"
+      googleResponse.forEach((response: any) => {
+          let keywordResponse: string = response.description.toLowerCase();
+          let keywordWallPost: string = this.wallPost.Keyword.toLowerCase();
+          //If there is a matching description found in the google response
+          if(keywordResponse == keywordWallPost){
+            googleGuess = true;
+            googleSingleResponse = this.wallPost.Keyword;
+            let score = response.score
+            googleScore = +score
+          }
+      })
+      if (!googleGuess){
+        let singleResponse = this.googleResponse[0].description
+        //Sets first letter to uppercase
+        googleSingleResponse = singleResponse.charAt(0).toUpperCase() + singleResponse.slice(1)
+        console.log(googleSingleResponse)
+      }
+      return [googleGuess, googleScore, googleSingleResponse]
+  }
+
+  addDrawingToDatabase(imageBucketLink: any, googleResults: any){
     //Current date and time
     var date = new Date().toString();
+    //Seeing if it's a free drawing canvas or we are drawing a specific keyword from a wall post
+    let keyword = ""
+    if(this.wallPost.Keyword == "null"){
+      keyword = "Free Draw";
+    }
+    else{
+      keyword = this.wallPost.Keyword;
+    }
     //hard coded data for now
     var drawing: Drawing = {
       ID: 0,
       PlayerID: 3,
-      WallPostID: 2,
-      Keyword: "cat",
+      WallPostID: this.wallPostID,
+      Keyword: keyword,
       BucketImage: imageBucketLink,
-      Guess: true,
-      GoogleScore: 98,
-      GoogleResponse: "cat",
+      Guess: googleResults[0],
+      GoogleScore: googleResults[1],
+      GoogleResponse: googleResults[2],
       Likes: [],
       Date: date
     }
@@ -92,17 +166,20 @@ export class CanvasPageComponent implements OnInit {
   }
 
   uploadImageToS3AndDatabase(){
+    let results: any[] = [];
     var image = this.saveImage();
     //Submits drawing to google vision api for response
-    this.submitDrawing(image)
+    this.submitDrawing(image).then((googleResults: any) =>{
+        results = this.getGoogleScores(googleResults)
+        console.log(results)
+    })
     //Convert the image to a data blob png
     var imageBlob = this.dataURItoBlob(image);
     //Returns the S3 bucket link we uploaded the image to
     this.amazons3.uploadFileToS3Bucket(imageBlob).then((response: any) => {
       var imageLocation = JSON.stringify(response.Location).slice(1,-1)
-      console.log(imageLocation)
       //Adds drawing to elephant sql database
-      this.addDrawingToDatabase(imageLocation)
+      this.addDrawingToDatabase(imageLocation, results)
     })
   }
 }

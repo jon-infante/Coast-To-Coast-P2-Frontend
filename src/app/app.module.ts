@@ -23,14 +23,11 @@ import { DrawingListComponent } from './components/drawing-list/drawing-list.com
     HomePageComponent,
     CanvasPageComponent,
     CanvasComponent,
-<<<<<<< HEAD
     WallpostsComponent, 
     AuthBtnComponent, 
     DrawingListComponent, 
-=======
     AuthBtnComponent,
     DrawingListComponent
->>>>>>> de0ce40578668a831bcdb45bf7efd5e3df1ea35d
   ],
   imports: [
     AuthModule.forRoot({

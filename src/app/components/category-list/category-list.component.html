@@ -1,15 +1,3 @@
-<!-- <div class="container">
-    <h1>Categories</h1>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="card" style="width: 18rem;" *ngFor="let category of allCategories">
-            <div class="card-body">
-                <h5 class="card-title">{{category.CategoryName}}</h5>
-            </div>
-        </div>
-    </div>
-</div> -->
 <head>
     <link rel="stylesheet" href="category-list.component.css">
     <style>
@@ -62,8 +50,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{category.CategoryName}}</h5>
                     </div>
+                    <div *ngFor = "let wallpost of category.WallPosts">
+                        <a (click)="goToCanvas(wallpost.ID)" class="btn btn-primary">{{wallpost.Keyword}}</a>
+                    </div>
                 </div>
-                <a href="wallpost" class="main"></a>
             </li>
         </ul>
     </div>    

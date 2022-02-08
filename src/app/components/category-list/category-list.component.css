@@ -10,6 +10,7 @@ h1 {
     font-family: 'Londrina Sketch';
     text-align: center;
     margin: 0 0 .5em 0;
+    color: #FF5C5C;
 }
 
 h2 {
@@ -17,6 +18,12 @@ h2 {
     margin: 0 0 .5em 0;
     font-family: 'Fuzzy Bubbles';
     word-wrap: break-word;
+}
+
+h5{
+    font-size: 1.5em;
+    font-family: 'Fuzzy Bubbles';
+
 }
 
 .card-text{
@@ -83,6 +90,7 @@ h2 {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    margin-right: 10px;
 }
 
 .btn:hover {

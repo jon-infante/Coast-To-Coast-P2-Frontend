@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CanvasPageComponent } from './components/canvas-page/canvas-page.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
@@ -26,7 +26,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  }
+  },
+  {
+    path: 'drawing',
+    component : DrawingListComponent
+  },
 
 ];
 

@@ -1,0 +1,24 @@
+.Title
+{
+    padding : 10px, 10px, 10px, 10px;
+    Text-align : center;
+    font-family: 'Fuzzy Bubbles', cursive;
+    font-size : 100px;
+}
+.SignIn
+{
+    border : 1px, 1px, 1px, 1px;
+    padding : 20px, 5px, 20px, 5px;
+    margin-left : 850px;
+    margin-right : 10px; 
+    text-align: center;
+    
+}
+.SignUp
+{
+    border : 1px, 1px, 1px, 1px;
+    padding : 10px, 5px, 10px, 5px;
+    margin-left : 10px;
+    margin-right : 10px; 
+    text-align: center;
+}

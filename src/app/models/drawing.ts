@@ -1,6 +1,6 @@
 import { Like } from './like';
 
-export type Drawing = {
+export interface Drawing  {
     ID: number;
     PlayerID: number;
     WallPostID: number;

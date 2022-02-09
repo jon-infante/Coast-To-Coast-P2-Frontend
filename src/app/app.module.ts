@@ -14,6 +14,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
 import { AuthBtnComponent } from './auth-btn/auth-btn.component';
 import { DrawingListComponent } from './components/drawing-list/drawing-list.component';
+import { PlayerProfileComponent } from './components/player-profile/player-profile.component';
 import { UserComponent } from './components/user/user.component';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { UserComponent } from './components/user/user.component';
     DrawingListComponent, 
     AuthBtnComponent,
     DrawingListComponent,
+    PlayerProfileComponent,
     UserComponent
 
   ],

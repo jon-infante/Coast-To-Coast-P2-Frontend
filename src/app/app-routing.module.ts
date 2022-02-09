@@ -5,8 +5,13 @@ import { CategoryListComponent } from './components/category-list/category-list.
 import { DrawingListComponent } from './components/drawing-list/drawing-list.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { WallpostsComponent } from './components/wallposts/wallposts.component';
+import { PlayerProfileComponent } from '../app/components/player-profile/player-profile.component';
 
 const routes: Routes = [
+  {
+    path: 'profile',
+    component: PlayerProfileComponent
+  },
   {
     path: 'home',
     component: HomePageComponent

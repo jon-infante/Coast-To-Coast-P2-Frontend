@@ -34,4 +34,8 @@ export class DrawingapiService {
   updateDrawing(drawingToUpdate: Drawing){
     return firstValueFrom(this.http.put<Drawing>(`${this.apiUrl}/Drawing`, drawingToUpdate))
   }
+
+  getDrawingByID(id: number): Promise<any>{
+    return firstValueFrom(this.http.get<any>(`${this.apiUrl}/Drawing/${id}`))
+  }
 }

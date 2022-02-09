@@ -27,6 +27,10 @@ export class PlayerapiService {
     return firstValueFrom(this.http.get<any>(`${this.rootURL}/Player/user/${username}`))
   }
 
+  updatePlayer(playerToUpdate: Player): Promise<any>{
+    return firstValueFrom(this.http.put<any>(`${this.rootURL}/Player`, playerToUpdate))
+  }
+
 
   // getLoginPlayer(username : string): Promise<Player> {
   //   console.log("got user nickname: ", username);

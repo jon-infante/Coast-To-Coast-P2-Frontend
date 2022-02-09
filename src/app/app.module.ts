@@ -15,6 +15,9 @@ import { environment } from 'src/environments/environment';
 import { AuthBtnComponent } from './auth-btn/auth-btn.component';
 import { DrawingListComponent } from './components/drawing-list/drawing-list.component';
 import { UserComponent } from './components/user/user.component';
+import { DrawingPageComponent } from './components/drawing-page/drawing-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { UserComponent } from './components/user/user.component';
     DrawingListComponent, 
     AuthBtnComponent,
     DrawingListComponent,
-    UserComponent
+    UserComponent,
+    DrawingPageComponent
 
   ],
   imports: [
@@ -40,6 +44,8 @@ import { UserComponent } from './components/user/user.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

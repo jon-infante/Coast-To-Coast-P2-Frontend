@@ -4,8 +4,10 @@ import { DrawingapiService } from 'src/app/services/drawingapi.service';
 import { GooglevisionService } from '../../services/googlevision.service';
 import { Drawing } from '../../models/drawing';
 import { Wallpost } from '../../models/wallpost'
+import { Player } from '../../models/player'
 import { ActivatedRoute } from '@angular/router';
 import { WallpostapiService } from 'src/app/services/wallpostapi.service';
+import { PlayerapiService } from 'src/app/services/playerapi.service';
 
 @Component({
   selector: 'app-canvas-page',
@@ -17,7 +19,7 @@ export class CanvasPageComponent implements OnInit {
 
   constructor(private googlevision: GooglevisionService, private amazons3: Amazons3Service, 
     private drawingapi: DrawingapiService, private wallpostapi: WallpostapiService, 
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private playerapi: PlayerapiService ) { }
 
     keywordSelected = "any Image!"
     pageLoaded = false;
@@ -27,7 +29,17 @@ export class CanvasPageComponent implements OnInit {
                     "score": 0,
                     "topicality": 0}]
 
-    // Empty initializer for wallpost
+    // Empty initializer for wallpost and player
+    playerID = 3;
+    currPlayer: Player = {'ID': 0,
+                      'Username': "null",
+                      'Password': "null",
+                      'CorrectGuesses': 0,
+                      'TotalGuesses': 0,
+                      'AverageResult': 0,
+                      'AverageScore': 0,
+                      'Drawings': []
+                      }
     wallPostID = 2;
     wallPost: Wallpost = {'ID': 0,
                           'CategoryID': 0,
@@ -38,7 +50,7 @@ export class CanvasPageComponent implements OnInit {
   ngOnInit(){
     this.route.params.subscribe(params => {
     // setting header for canvas 
-
+    this.getCurrentPlayer(this.playerID)
     // extract the id from route params
     this.wallPostID = +params['id']; // (+) converts string 'id' to a number
     if(!isNaN(this.wallPostID)){
@@ -52,10 +64,18 @@ export class CanvasPageComponent implements OnInit {
       })
     }
     else{
+      //Default wall post to post to
       this.wallPostID = 2
       this.pageLoaded = true;
     }
     });
+  }
+  //!!Change to get player by username!!
+  getCurrentPlayer(id: number){
+    this.playerapi.getPlayerByID(id).then((player) => {
+      this.currPlayer.ID = player.id,
+      this.currPlayer.Username = player.username
+    })
   }
 
   //Saves the current canvas as data uri image
@@ -77,7 +97,6 @@ export class CanvasPageComponent implements OnInit {
     var dataBlob =  new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
     var fileOfBlob = new File([dataBlob], `${id}`);
     return fileOfBlob
-
   }
 
   //Clears the canvas
@@ -153,6 +172,7 @@ export class CanvasPageComponent implements OnInit {
     var drawing: Drawing = {
       ID: 0,
       PlayerID: 3,
+      PlayerName: this.currPlayer.Username,
       WallPostID: this.wallPostID,
       Keyword: keyword,
       BucketImage: imageBucketLink,

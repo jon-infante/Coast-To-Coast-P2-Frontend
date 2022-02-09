@@ -8,6 +8,7 @@ import { Player } from '../../models/player'
 import { ActivatedRoute } from '@angular/router';
 import { WallpostapiService } from 'src/app/services/wallpostapi.service';
 import { PlayerapiService } from 'src/app/services/playerapi.service';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-canvas-page',
@@ -19,7 +20,7 @@ export class CanvasPageComponent implements OnInit {
 
   constructor(private googlevision: GooglevisionService, private amazons3: Amazons3Service, 
     private drawingapi: DrawingapiService, private wallpostapi: WallpostapiService, 
-    private route: ActivatedRoute, private playerapi: PlayerapiService ) { }
+    private route: ActivatedRoute, private playerapi: PlayerapiService,public auth: AuthService ) { }
 
     keywordSelected = "any Image!"
     pageLoaded = false;
@@ -30,8 +31,7 @@ export class CanvasPageComponent implements OnInit {
                     "topicality": 0}]
 
     // Empty initializer for wallpost and player
-    playerID = 3;
-    currPlayer: Player = {'ID': 0,
+    currPlayer: Player = {'ID': 3,
                       'Username': "null",
                       'Password': "null",
                       'CorrectGuesses': 0,
@@ -50,7 +50,10 @@ export class CanvasPageComponent implements OnInit {
   ngOnInit(){
     this.route.params.subscribe(params => {
     // setting header for canvas 
-    this.getCurrentPlayer(this.playerID)
+    this.auth.user$.subscribe((userInfo)=> { 
+      this.getCurrentPlayer(userInfo?.nickname)
+      })
+    
     // extract the id from route params
     this.wallPostID = +params['id']; // (+) converts string 'id' to a number
     if(!isNaN(this.wallPostID)){
@@ -71,10 +74,11 @@ export class CanvasPageComponent implements OnInit {
     });
   }
   //!!Change to get player by username!!
-  getCurrentPlayer(id: number){
-    this.playerapi.getPlayerByID(id).then((player) => {
+  getCurrentPlayer(username: string | undefined){
+    this.playerapi.getPlayerByUsername(username!).then((player) => {
       this.currPlayer.ID = player.id,
       this.currPlayer.Username = player.username
+      console.log(this.currPlayer.ID)
     })
   }
 
@@ -171,7 +175,7 @@ export class CanvasPageComponent implements OnInit {
     //hard coded data for now
     var drawing: Drawing = {
       ID: 0,
-      PlayerID: 3,
+      PlayerID: this.currPlayer.ID,
       PlayerName: this.currPlayer.Username,
       WallPostID: this.wallPostID,
       Keyword: keyword,

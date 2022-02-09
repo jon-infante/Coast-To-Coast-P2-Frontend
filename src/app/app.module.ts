@@ -13,6 +13,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
 import { AuthBtnComponent } from './auth-btn/auth-btn.component';
 import { DrawingListComponent } from './components/drawing-list/drawing-list.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DrawingListComponent } from './components/drawing-list/drawing-list.com
     CanvasPageComponent,
     CanvasComponent,
     AuthBtnComponent,
-    DrawingListComponent
+    DrawingListComponent,
+    UserComponent
   ],
   imports: [
     AuthModule.forRoot({

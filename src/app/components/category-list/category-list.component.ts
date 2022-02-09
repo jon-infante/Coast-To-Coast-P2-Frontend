@@ -46,6 +46,8 @@ export class CategoryListComponent implements OnInit {
     this.router.navigate([`canvas/${id}`],);
   }
 
-  
+  goToWallPostPage(keyword: any): void{
+    this.router.navigate([`drawinglist/${keyword}`])
+  }
 
 }

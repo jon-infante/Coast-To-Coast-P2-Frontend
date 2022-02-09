@@ -7,4 +7,5 @@ export type Comment = {
     Message: string;
     Likes: Like[];
     Date: string;
+    IsLiked: boolean;
 }

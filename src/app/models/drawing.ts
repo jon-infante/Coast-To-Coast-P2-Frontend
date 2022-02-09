@@ -11,4 +11,5 @@ export interface Drawing  {
     GoogleResponse: string;
     Likes: Like[];
     Date: string;
+    IsLiked: boolean;
 }

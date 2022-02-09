@@ -3,6 +3,7 @@ import { Like } from './like';
 export interface Drawing  {
     ID: number;
     PlayerID: number;
+    PlayerName: string;
     WallPostID: number;
     Keyword: string;
     BucketImage: string;

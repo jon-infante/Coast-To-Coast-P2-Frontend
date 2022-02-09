@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { AuthBtnComponent } from './auth-btn/auth-btn.component';
 import { DrawingListComponent } from './components/drawing-list/drawing-list.component';
 import { PlayerProfileComponent } from './components/player-profile/player-profile.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,8 @@ import { PlayerProfileComponent } from './components/player-profile/player-profi
     AuthBtnComponent,
     DrawingListComponent,
     PlayerProfileComponent,
+    UserComponent
+
   ],
   imports: [
     AuthModule.forRoot({

@@ -29,6 +29,7 @@ export class DrawingListComponent implements OnInit {
         var castedDrawing: Drawing = {
           ID: drawing.id,
           PlayerID: drawing.playerID,
+          PlayerName: drawing.playerName,
           WallPostID: drawing.wallPostID,
           Keyword: drawing.keyword,
           BucketImage: drawing.bucketImage,
@@ -53,6 +54,7 @@ export class DrawingListComponent implements OnInit {
         var castedDrawing: Drawing = {
           ID: drawing.id,
           PlayerID: drawing.playerID,
+          PlayerName: drawing.playerName,
           WallPostID: drawing.wallPostID,
           Keyword: drawing.keyword,
           BucketImage: drawing.bucketImage,

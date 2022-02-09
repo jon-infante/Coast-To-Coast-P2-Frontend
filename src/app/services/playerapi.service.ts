@@ -16,7 +16,7 @@ export class PlayerapiService {
 
   getLoginPlayer(username : string): Promise<Player> {
     console.log("got user nickname: ", username);
-    return firstValueFrom(this.http.get<Player>(this.rootURL+"Player/login/"+username))
+    return firstValueFrom(this.http.get<Player>(this.rootURL+"/Player/login/"+username))
   }
 
   getPlayerByID(id: number): Promise<any>{

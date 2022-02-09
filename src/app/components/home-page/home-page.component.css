@@ -1,24 +1,123 @@
-.Title
+.title
 {
+    margin: 50px auto;
     padding : 10px, 10px, 10px, 10px;
     Text-align : center;
     font-family: 'Fuzzy Bubbles', cursive;
-    font-size : 100px;
+    width: 65%;
 }
-.SignIn
-{
-    border : 1px, 1px, 1px, 1px;
-    padding : 20px, 5px, 20px, 5px;
-    margin-left : 850px;
-    margin-right : 10px; 
-    text-align: center;
+
+.head-main{
+    font-size: 150px;
+}
+
+h2{
+    margin-top: 20px;
+}
+
+.title-para{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+
+}
+
+.child-container{
+    margin: 0 auto;
+}
+
+.btn-1 {
+    background-color: transparent;
+    border: 1px solid #266DB6;
+    box-sizing: border-box;
+    color: #00132C;
+    font-family: "Avenir Next LT W01 Bold",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 16px 40px;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 30px 30px 0 auto;
+    }
     
+.btn-1:hover, .btn-1:active {
+    outline: 0;
 }
-.SignUp
-{
-    border : 1px, 1px, 1px, 1px;
-    padding : 10px, 5px, 10px, 5px;
-    margin-left : 10px;
-    margin-right : 10px; 
-    text-align: center;
+    
+.btn-1:hover {
+    background-color: transparent;
+    cursor: pointer;
 }
+    
+.btn-1:before {
+    background-color: #D5EDF6;
+    content: "";
+    height: calc(100% + 3px);
+    position: absolute;
+    right: 7px;
+    top: -9px;
+    transition: background-color 300ms ease-in;
+    width: 100%;
+    z-index: -1;
+}
+
+.btn-1:hover:before {
+    background-color: #6DCFF6;
+}
+
+a{
+    text-decoration: none;
+    color: #00132C;
+    font-family: "Avenir Next LT W01 Bold",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.btn-2 {
+    background-color: transparent;
+    border: 1px solid #266DB6;
+    box-sizing: border-box;
+    color: #00132C;
+    font-family: "Avenir Next LT W01 Bold",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 16px 40px;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn-2:hover, .btn-2:active {
+    outline: 0;
+}
+
+.btn-2:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-2:before {
+    background-color: #ffe44c9f;
+    content: "";
+    height: calc(100% + 3px);
+    position: absolute;
+    left: 7px;
+    top: 9px;
+    transition: background-color 300ms ease-in;
+    width: 100%;
+    z-index: -1;
+}
+
+.btn-2:hover:before {
+    background-color: #ffe44c;
+}
+
+
+

@@ -24,7 +24,7 @@ export class CategoryListComponent implements OnInit {
         var castedCategory: Category = {
           ID: category.id,
           CategoryName: category.categoryName,
-          WallPosts: category.wallPosts,
+          WallPosts: [],
         }
         category.wallPosts.forEach((wallpost: any) => {
           var castedWallPost: Wallpost = {
@@ -44,6 +44,10 @@ export class CategoryListComponent implements OnInit {
   goToCanvas(id: any): void
   {
     this.router.navigate([`canvas/${id}`],);
+  }
+
+  goToWallPostPage(keyword: any): void{
+    this.router.navigate([`drawinglist/${keyword}`])
   }
 
 }

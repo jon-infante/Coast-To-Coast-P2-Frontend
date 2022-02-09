@@ -41,7 +41,28 @@ export class PlayerProfileComponent extends CanvasPageComponent implements OnIni
     this.playerapi.getPlayerByID(id).then((player) => {
       this.currPlayer.ID = player.id,
       this.currPlayer.Username = player.username
+      player.drawings.forEach((drawing: any) => {
+        var castedDrawing: Drawing = {
+          ID: drawing.id,
+          PlayerID: drawing.playerID,
+          PlayerName: drawing.playerName,
+          WallPostID: drawing.wallPostID,
+          Keyword: drawing.keyword,
+          BucketImage: drawing.bucketImage,
+          Guess: drawing.guess,
+          GoogleScore: drawing.googleScore,
+          GoogleResponse: drawing.googleResponse,
+          Likes: drawing.likes,
+          Date: drawing.date,
+          IsLiked: drawing.isLiked
+        }
+        this.currPlayer.Drawings.push(castedDrawing)
+      })
     })
+
+
   }
+
+  
 }
 

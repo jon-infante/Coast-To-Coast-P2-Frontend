@@ -1,3 +1,12 @@
 <div class="container-fluid">
     <h1>Welcome, {{currPlayer.Username}}</h1>
+    <div class="card-group">
+        <ul>
+            <li>
+                <div class="card" style="width: 18rem" *ngFor= "let Drawings of currPlayer.Drawings">
+                    <img class="card-img-top"src="{{Drawings.BucketImage}}" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>

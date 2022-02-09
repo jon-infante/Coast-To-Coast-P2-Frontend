@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { Player } from '../models/player';
 import { environment } from 'src/environments/environment';
+import { Player } from '../models/player';
 
 
 @Injectable({
@@ -14,8 +14,24 @@ export class PlayerapiService {
 
   rootURL = 'http://webapi-prod.us-west-2.elasticbeanstalk.com/api/';
 
-  createNewPlayer(playerMade: Player)
-  {
-    return firstValueFrom(this.http.post(this.rootURL + "/Player", playerMade))
+  getLoginPlayer(username : string): Promise<Player> {
+    console.log("got user nickname: ", username);
+    return firstValueFrom(this.http.get<Player>(this.rootURL+"Player/login/"+username))
   }
+
+
+
+
+  // getLoginPlayer(username : string): Promise<Player> {
+  //   console.log("got user nickname: ", username);
+  //   return firstValueFrom(this.http.get(this.rootURL+"/Player/"+username))
+  // }
+  
+  // getLoginPlayer(playerMade: Player)
+  // {
+  //   return firstValueFrom(this.http.post(this.rootURL + "/Player/", playerMade))
+  // }
+  // getPlayerByUsername(string: Player['Username']) {
+  //   return firstValueFrom(this.http.get(this.rootURL+"/ID", Player.Username))
+  // }
 }

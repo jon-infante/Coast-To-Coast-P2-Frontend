@@ -11,7 +11,7 @@
             <img class="card-img-top" src="{{drawing.BucketImage}}"alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{drawing.Keyword}}</h5>
-                <p class="card-text">Google Response: {{drawing.GoogleResponse}}<br>Score: {{drawing.GoogleScore}} </p>
+                <p class="card-text">Player: {{drawing.PlayerName}}<br>Google Response: {{drawing.GoogleResponse}}<br>Score: {{drawing.GoogleScore}} </p>
                     <div class="row justify-content-center">
                         <div class="col sm 1">
                             <button class="like-button" (click)="LikeDrawing(drawing)"[ngClass]="drawing.IsLiked ? 'liked' : ''"></button>

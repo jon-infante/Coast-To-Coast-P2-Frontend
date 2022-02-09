@@ -1,12 +1,25 @@
 <div class="container">
-    <div class="row">
+    <div *ngIf="isWallPostPage; else notWallPostPage">
+        <div class ="draw">
+            {{keyword}} Page
+        </div>
+    </div>
+        <ng-template #notWallPostPage>
+        </ng-template>
+    <div class="row justify-content-center">
         <div class="card" style="width: 18rem;" *ngFor="let drawing of allDrawings">
             <img class="card-img-top" src="{{drawing.BucketImage}}"alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{drawing.Keyword}}</h5>
                 <p class="card-text">Google Response: {{drawing.GoogleResponse}}<br>Score: {{drawing.GoogleScore}} </p>
-                <p class="card-text"> </p>
-                <a href="#" class="btn btn-primary">Comments</a>
+                    <div class="row justify-content-center">
+                        <div class="col sm 1">
+                            <button class="like-button" (click)="LikeDrawing(drawing)"[ngClass]="drawing.IsLiked ? 'liked' : ''"></button>
+                        </div>
+                        <div class="col sm 1">
+                            <a href="#" class="btn btn-primary">Comments</a>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

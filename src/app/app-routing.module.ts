@@ -28,6 +28,10 @@ const routes: Routes = [
     component: DrawingListComponent
   },
   {
+    path: 'drawinglist/:id',
+    component: DrawingListComponent
+  },
+  {
     path: 'wallpostlist',
     component: WallpostsComponent
   },

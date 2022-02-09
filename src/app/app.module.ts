@@ -27,7 +27,7 @@ import { DrawingListComponent } from './components/drawing-list/drawing-list.com
     AuthBtnComponent, 
     DrawingListComponent, 
     AuthBtnComponent,
-    DrawingListComponent
+    DrawingListComponent,
   ],
   imports: [
     AuthModule.forRoot({

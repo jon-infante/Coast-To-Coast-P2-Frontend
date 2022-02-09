@@ -16,20 +16,14 @@ export class DrawingListComponent implements OnInit {
 
   isWallPostPage = false;
   allDrawings: Drawing[] = [];
-  params = 3
   keyword = ""
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+    // extract the id from route params (keyworD)
     this.keyword = params['id'];
-    console.log(this.keyword)
-    if(!(this.keyword == undefined)){
-      this.params = +params['id'];
-      console.log(this.params) // (+) converts string 'id' to a number
-    }
-    // extract the id from route params
-    //If params are a number we search for all the drawings by that player id
-    if(!isNaN(this.params)){
-    this.drawingapiService.getAllDrawingsByPlayerID(this.params).then((drawingArray) => 
+    //If params are undefined, we get all the drawings fromt the list
+    if((this.keyword == undefined)){
+    this.drawingapiService.getAllDrawings().then((drawingArray) => 
     {
       drawingArray.forEach((drawing: any) => {
         var castedDrawing: Drawing = {

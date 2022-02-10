@@ -1,27 +1,26 @@
-# P2DroogleFrontend
+﻿<h1 align="center">  Droogle </h1> <br>
+<h3 align ="center">Challenge Google Vision to a game of pictionary!</h3>
+<p align="center">
+  <br>
+Choose a subject to draw, and we will submit it to the Google Vision API and see how smart the machines really are. Your score will be upon wether or not google can guess correctly. Compare your drawings and scores with our Droogle community!<br><br>
+Angular Web Application with backend written in C#
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
+<p align="center"><img src="https://img.shields.io/badge/Amazon AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />  <img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white"/>  <img src="https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />  <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" />  <img src="https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white"/>  <img src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white"/></p>
+<br>
 
-## Development server
+## Functionality
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Ability for users to sign up and log in with Auth0
+* Users can choose different categories to draw against Google
+* Drawing on a canvas to submit to Google Vision API
+* View a list of all player's drawings
+* Users can like and comment on drawings submitted by other players
 
-## Code scaffolding
+## Get Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To checkout the application use the following steps:
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> Install the Angular CLI to run the application with `npm install -g @angular/cli`<br>
+> Clone the repo `git clone https://github.com/211206NET/Coast-To-Coast-P2-Frontend.git`<br>
+> Navigate to project folder and enter `ng serve`

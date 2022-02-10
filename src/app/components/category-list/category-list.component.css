@@ -2,7 +2,6 @@ body {
     font-family: segoe ui, helvetica, sans-serif;
     background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    margin: 2em;
 }
 
 h1 {
@@ -32,10 +31,10 @@ h5{
 }
 
 .card{
-    width: 800px;
-    margin: 0 50px;
+    width: 800rem;
+    margin: 0 30px;
     text-align: center;
-    overflow: hidden;
+    
 }
 
 .card:hover{

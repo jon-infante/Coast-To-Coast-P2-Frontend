@@ -8,7 +8,10 @@ import { Player } from '../../models/player'
 import { ActivatedRoute } from '@angular/router';
 import { WallpostapiService } from 'src/app/services/wallpostapi.service';
 import { PlayerapiService } from 'src/app/services/playerapi.service';
+import { Router } from "@angular/router";
 import { AuthService } from '@auth0/auth0-angular';
+import { info } from 'console';
+
 
 @Component({
   selector: 'app-canvas-page',
@@ -18,9 +21,11 @@ import { AuthService } from '@auth0/auth0-angular';
 export class CanvasPageComponent implements OnInit {
   //api key params
 
-  constructor(private googlevision: GooglevisionService, private amazons3: Amazons3Service, 
-    private drawingapi: DrawingapiService, private wallpostapi: WallpostapiService, 
-    private route: ActivatedRoute, private playerapi: PlayerapiService,public auth: AuthService ) { }
+  constructor(public googlevision: GooglevisionService, public amazons3: Amazons3Service, 
+    public drawingapi: DrawingapiService, public wallpostapi: WallpostapiService, 
+    public route: ActivatedRoute, public playerapi: PlayerapiService, public router: Router, 
+    public auth: AuthService ) { }
+
 
     keywordSelected = "any Image!"
     pageLoaded = false;
@@ -40,7 +45,7 @@ export class CanvasPageComponent implements OnInit {
                       'AverageScore': 0,
                       'Drawings': []
                       }
-    wallPostID = 2;
+    wallPostID = 31;
     wallPost: Wallpost = {'ID': 0,
                           'CategoryID': 0,
                           'Drawings': [],
@@ -48,10 +53,13 @@ export class CanvasPageComponent implements OnInit {
                           }
 
   ngOnInit(){
+
     this.route.params.subscribe(params => {
-    // setting header for canvas 
-    this.auth.user$.subscribe((userInfo)=> { 
+    //Checking current logged in user and updating blank player
+    this.auth.user$.subscribe((userInfo)=> {
+      if(userInfo?.nickname != null){
       this.getCurrentPlayer(userInfo?.nickname)
+      }
       })
     
     // extract the id from route params
@@ -73,12 +81,14 @@ export class CanvasPageComponent implements OnInit {
     }
     });
   }
-  //!!Change to get player by username!!
+  //Gets current play information by nickname logged in
   getCurrentPlayer(username: string | undefined){
     this.playerapi.getPlayerByUsername(username!).then((player) => {
       this.currPlayer.ID = player.id,
       this.currPlayer.Username = player.username
-      console.log(this.currPlayer.ID)
+      this.currPlayer.AverageScore = player.averageScore,
+      this.currPlayer.TotalGuesses = player.totalGuesses,
+      this.currPlayer.CorrectGuesses = player.correctGuesses
     })
   }
 
@@ -190,6 +200,28 @@ export class CanvasPageComponent implements OnInit {
     this.drawingapi.addDrawing(drawing).then((res) => {
       console.log(res)
     })
+    //Updates player scores with new google results
+    this.updatePlayerResults(this.currPlayer, googleResults)
+  }
+
+  updatePlayerResults(player: Player, googleResults: any){
+    //Updates total guesses and correct number of guesses
+    if (googleResults[0]){
+      player.CorrectGuesses += 1;
+    }
+    //Calculating new average score    
+    let currentScore = player.AverageScore + googleResults[1]
+    if (currentScore != 0){
+      let currentAverageScore = (player.AverageScore*player.TotalGuesses) + googleResults[1]
+      player.TotalGuesses += 1;
+      player.AverageScore = parseFloat((currentAverageScore / player.TotalGuesses).toFixed(2))
+    }
+    //Average score is 0 currently
+    else{
+      player.TotalGuesses += 1;
+    }
+    console.log(player)
+    this.playerapi.updatePlayer(player)
   }
 
   uploadImageToS3AndDatabase(){

@@ -3,6 +3,7 @@ import { DrawingapiService } from 'src/app/services/drawingapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { Drawing } from '../../models/drawing';
 import { WallPostApiService } from 'src/app/services/wall-post-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-drawing-list',
@@ -12,7 +13,7 @@ import { WallPostApiService } from 'src/app/services/wall-post-api.service';
 export class DrawingListComponent implements OnInit {
 
   constructor(private drawingapiService: DrawingapiService, private route: ActivatedRoute, 
-    private wallpostapiService: WallPostApiService) { }
+    private wallpostapiService: WallPostApiService, private router:Router) { }
 
   isWallPostPage = false;
   allDrawings: Drawing[] = [];
@@ -71,7 +72,11 @@ export class DrawingListComponent implements OnInit {
   }})
   }
   LikeDrawing(drawing: Drawing){
+    drawing.Likes = []
     drawing.IsLiked = !drawing.IsLiked
     console.log(this.drawingapiService.updateDrawing(drawing))
   } 
+  goToDrawingPage(id: any): void{
+    this.router.navigate([`drawingpage/${id}`])
+  }
 }

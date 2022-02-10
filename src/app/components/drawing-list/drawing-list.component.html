@@ -17,7 +17,7 @@
                             <button class="like-button" (click)="LikeDrawing(drawing)"[ngClass]="drawing.IsLiked ? 'liked' : ''"></button>
                         </div>
                         <div class="col sm 1">
-                            <a href="#" class="btn btn-primary">Comments</a>
+                            <a (click)="goToDrawingPage(drawing.ID)" class="btn btn-primary">Comments</a>
                         </div>
                     </div>
             </div>

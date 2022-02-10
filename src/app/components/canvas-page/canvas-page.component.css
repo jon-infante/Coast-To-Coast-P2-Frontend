@@ -70,3 +70,12 @@ h2 {
     margin: 0 0 .5em 0;
     font-family: Arial, sans-serif;
 }
+
+.header {
+    padding: 40px;
+    text-align: center;
+    background: #ffe44c9f;
+    color: white;
+    font-size: 40px;
+    color: #00132C
+  }

@@ -8,8 +8,10 @@ import { Player } from '../../models/player'
 import { ActivatedRoute } from '@angular/router';
 import { WallpostapiService } from 'src/app/services/wallpostapi.service';
 import { PlayerapiService } from 'src/app/services/playerapi.service';
+import { Router } from "@angular/router";
 import { AuthService } from '@auth0/auth0-angular';
 import { info } from 'console';
+
 
 @Component({
   selector: 'app-canvas-page',
@@ -19,9 +21,11 @@ import { info } from 'console';
 export class CanvasPageComponent implements OnInit {
   //api key params
 
-  constructor(private googlevision: GooglevisionService, private amazons3: Amazons3Service, 
-    private drawingapi: DrawingapiService, private wallpostapi: WallpostapiService, 
-    private route: ActivatedRoute, private playerapi: PlayerapiService,public auth: AuthService ) { }
+  constructor(public googlevision: GooglevisionService, public amazons3: Amazons3Service, 
+    public drawingapi: DrawingapiService, public wallpostapi: WallpostapiService, 
+    public route: ActivatedRoute, public playerapi: PlayerapiService, public router: Router, 
+    public auth: AuthService ) { }
+
 
     keywordSelected = "any Image!"
     pageLoaded = false;
@@ -49,6 +53,7 @@ export class CanvasPageComponent implements OnInit {
                           }
 
   ngOnInit(){
+
     this.route.params.subscribe(params => {
     //Checking current logged in user and updating blank player
     this.auth.user$.subscribe((userInfo)=> {

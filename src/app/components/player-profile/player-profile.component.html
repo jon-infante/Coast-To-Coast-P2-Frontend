@@ -5,15 +5,18 @@
 <body>
     <div class="title">
         <h1>Welcome, {{currPlayer.Username}}!</h1>
-        <h3>Here is your personal artist gallery:</h3>
+        <!-- <h3>Here is your personal artist gallery:</h3> -->
+        <ul>
+            <li>Average Score: {{currPlayer.AverageScore}}</li>
+            <li>Total Drawings: {{currPlayer.TotalGuesses}}</li>
+            <li>Correct Answers: {{currPlayer.CorrectGuesses}}</li>
+        </ul>
     </div>
     <div class="main-container">
-        <ul>
-            <li style="list-style: none;">
-                <div class="flex-child" *ngFor= "let Drawings of currPlayer.Drawings">
-                    <img class="drawing" src="{{Drawings.BucketImage}}" alt="">
-                </div>
-            </li>
-        </ul>
+        <div class="gallery">
+            <div class="flex-child" *ngFor= "let Drawings of currPlayer.Drawings">
+                <img class="drawing" src="{{Drawings.BucketImage}}" alt="">
+            </div>
+        </div>
     </div>
 </body>

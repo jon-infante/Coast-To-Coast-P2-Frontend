@@ -1,7 +1,14 @@
 .title {
     font-family: 'Fuzzy Bubbles';
-    margin: 50px auto;
+    color: aliceblue;
+    -webkit-text-stroke: 1px black;
+    margin: 0 auto;
     text-align: center;
+    background-color: #ffe44c9f;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .title h1 {
@@ -14,9 +21,28 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    margin-top: 30px;
+}
+
+.stats{
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Fuzzy Bubbles';
 }
 
 ul{
+    list-style: none;
+    padding-top: 15px;
+}
+
+li{
+    display: inline;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.gallery{
     width: 90%;
 }
 

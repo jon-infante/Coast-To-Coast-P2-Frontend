@@ -59,7 +59,7 @@ export class DrawingPageComponent implements OnInit {
         })
       // extract the id from route params (keyworD)
       let id = +params['id'];
-      //If params are undefined, we get all the drawings fromt the list
+      //If params are undefined, we get all the drawings from the list
       this.drawingapiService.getDrawingByID(id).then((drawing) => 
       {
             this.currDrawing.ID = drawing.id,

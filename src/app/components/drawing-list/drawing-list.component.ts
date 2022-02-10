@@ -72,6 +72,7 @@ export class DrawingListComponent implements OnInit {
   }})
   }
   LikeDrawing(drawing: Drawing){
+    drawing.Likes = []
     drawing.IsLiked = !drawing.IsLiked
     console.log(this.drawingapiService.updateDrawing(drawing))
   } 

@@ -1,11 +1,11 @@
 ﻿<h1 align="center">  Droogle </h1> <br>
 <p align="center">
-  Challenge Google Vision to a game of pictionary!<br>
-Choose a subject to draw, and we will submit it to the Google Vision API and see how smart the machines really are. Your score will be upon wether or not google can guess correctly. Compare your drawings and scores with our Droogle community!<br>
+  <h2>Challenge Google Vision to a game of pictionary!<h2><br>
+Choose a subject to draw, and we will submit it to the Google Vision API and see how smart the machines really are. Your score will be upon wether or not google can guess correctly. Compare your drawings and scores with our Droogle community!<br><br>
 Angular Web Application with backend written in C#
 </p>
 
-<p align="center"><img src="https://img.shields.io/badge/Amazon AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />  <img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white"  />  <img src="https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />  <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" /><img src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white"/><img src="(https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white"/></p>
+<p align="center"><img src="https://img.shields.io/badge/Amazon AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />  <img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white"  />  <img src="https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />  <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" /><img src="https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white"/><img src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white"/></p>
 <br>
 
 ## Functionality

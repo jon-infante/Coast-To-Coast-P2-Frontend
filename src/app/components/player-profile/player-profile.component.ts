@@ -40,7 +40,10 @@ export class PlayerProfileComponent extends CanvasPageComponent implements OnIni
   override getCurrentPlayer(username: string){
     this.playerapi.getPlayerByUsername(username).then((player) => {
       this.currPlayer.ID = player.id,
-      this.currPlayer.Username = player.username
+      this.currPlayer.Username = player.username,
+      this.currPlayer.AverageScore = player.averageScore,
+      this.currPlayer.TotalGuesses = player.totalGuesses,
+      this.currPlayer.CorrectGuesses = player.correctGuesses
       player.drawings.forEach((drawing: any) => {
         var castedDrawing: Drawing = {
           ID: drawing.id,
@@ -58,6 +61,7 @@ export class PlayerProfileComponent extends CanvasPageComponent implements OnIni
         }
         this.currPlayer.Drawings.push(castedDrawing)
       })
+      console.log(this.currPlayer.AverageScore);
     })
 
 

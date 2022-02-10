@@ -30,11 +30,11 @@
                             <div class="d-flex flex-row add-comment-section mt-4 mb-4">
                                 <img class="img-fluid img-responsive rounded-circle mr-2" src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" width="38">
                                 <form [formGroup]="commentForm" (ngSubmit)="AddCommentToDrawing()">
-                                      <label for="message">
-                                      </label>
-                                      <input id="message" style="height:45px;font-size:14pt;width:250px" type="text" formControlName="message" placeholder="Add Comment">
-                                      <button class="btn btn-primary" type="submit">Comment</button>
-                                  </form>
+                                    <label for="message">
+                                    </label>
+                                    <input id="message" style="height:45px;font-size:14pt;width:250px" type="text" formControlName="message" placeholder="Add Comment">
+                                    <button class="btn btn-primary" type="submit">Comment</button>
+                                </form>
 
                             </div>
                             <div class="commented-section mt-2" *ngFor="let comment of allComments">

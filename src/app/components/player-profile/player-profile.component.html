@@ -1,12 +1,22 @@
-<div class="container-fluid">
-    <h1>Welcome, {{currPlayer.Username}}</h1>
-    <div class="card-group">
+<head>
+    <link rel="stylesheet" href="./player-profile.component.css">
+</head>
+
+<body>
+    <div class="title">
+        <h1>Welcome, {{currPlayer.Username}}!</h1>
+        <!-- <h3>Here is your personal artist gallery:</h3> -->
         <ul>
-            <li>
-                <div class="card" style="width: 18rem" *ngFor= "let Drawings of currPlayer.Drawings">
-                    <img class="card-img-top"src="{{Drawings.BucketImage}}" alt="">
-                </div>
-            </li>
+            <li>Average Score: {{currPlayer.AverageScore}}</li>
+            <li>Total Drawings: {{currPlayer.TotalGuesses}}</li>
+            <li>Correct Answers: {{currPlayer.CorrectGuesses}}</li>
         </ul>
     </div>
-</div>
+    <div class="main-container">
+        <div class="gallery">
+            <div class="flex-child" *ngFor= "let Drawings of currPlayer.Drawings">
+                <img class="drawing" src="{{Drawings.BucketImage}}" alt="">
+            </div>
+        </div>
+    </div>
+</body>

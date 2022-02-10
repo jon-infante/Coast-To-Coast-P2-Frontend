@@ -16,12 +16,10 @@
                         </div>
                         <div class="card-text" *ngFor = "let wallpost of category.WallPosts">
                             <h5>{{wallpost.Keyword}}</h5>
-                            <button class="btn draw">
-                                <a (click)="goToCanvas(wallpost.ID)">Draw!</a>
-                            </button>
-                            <button class="btn draw">
-                                <a (click)="goToWallPostPage(wallpost.Keyword)">View!</a>
-                            </button>
+                                <a (click)="goToCanvas(wallpost.ID)"><button class="btn draw">Draw!</button></a>
+                                <a (click)="goToWallPostPage(wallpost.Keyword)">
+                                    <button class="btn draw">View!</button>
+                                </a>
                         </div>
                     </div>
                 </div>

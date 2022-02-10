@@ -13,14 +13,14 @@ h1 {
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin: 0 0 .5em 0;
     font-family: 'Fuzzy Bubbles';
     word-wrap: break-word;
 }
 
 h5{
-    font-size: 1.5em;
+    font-size: 2em;
     font-family: 'Fuzzy Bubbles';
 
 }
@@ -43,7 +43,6 @@ h5{
 
 .card-body{
     flex: none;
-
     padding: 0;
     margin-bottom: 20px;
     overflow: hidden;
@@ -59,7 +58,7 @@ h5{
     cursor: pointer;
 }
 
-.btn.draw{
+.btn{
     align-self: center;
     background-color: #fff;
     background-image: none;
@@ -93,7 +92,7 @@ h5{
 }
 
 .btn:hover {
-    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    box-shadow: rgba(102, 50, 154, .4) 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
 }
 

@@ -19,7 +19,7 @@ Angular Web Application with backend written in C#
 
 ## Get Started
 
-To checkout the store application use the following steps:
+To checkout the application use the following steps:
 
 > Install the Angular CLI to run the application with `npm install -g @angular/cli`<br>
 > Clone the repo `git clone https://github.com/211206NET/Coast-To-Coast-P2-Frontend.git`<br>

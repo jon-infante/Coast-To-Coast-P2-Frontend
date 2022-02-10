@@ -1,6 +1,7 @@
 ﻿<h1 align="center">  Droogle </h1> <br>
+<h3 align ="center">Challenge Google Vision to a game of pictionary!</h3>
 <p align="center">
-  <h2>Challenge Google Vision to a game of pictionary!</h2><br><br>
+  <br>
 Choose a subject to draw, and we will submit it to the Google Vision API and see how smart the machines really are. Your score will be upon wether or not google can guess correctly. Compare your drawings and scores with our Droogle community!<br><br>
 Angular Web Application with backend written in C#
 </p>

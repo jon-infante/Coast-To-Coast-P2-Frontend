@@ -86,7 +86,7 @@ export class DrawingPageComponent implements OnInit {
             Username: comment.username,
             Message: comment.message,
             Date: comment.date,
-            Likes: [],
+            Likes: comment.likes,
             IsLiked: comment.isLiked
           }
           this.allComments.push(castedComment)
@@ -97,7 +97,7 @@ export class DrawingPageComponent implements OnInit {
   }
   LikeDrawing(drawing: Drawing){
     drawing.IsLiked = !drawing.IsLiked
-    console.log(this.drawingapiService.updateDrawing(drawing))
+    this.drawingapiService.updateDrawing(drawing)
   }
 
   getCurrentPlayer(username: string | undefined){

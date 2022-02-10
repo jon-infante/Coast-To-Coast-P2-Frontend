@@ -20,6 +20,12 @@
             <li class="nav-item">
                 <app-auth-btn></app-auth-btn>
             </li>
+            <li class="user-greeting" *ngIf="user">
+                <span class="dot mb-1"></span>
+                {{user.nickname}}
+            </li>
+
         </ul>
+
     </div>
 </nav>

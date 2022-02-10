@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private auth: AuthService) { }
 
   goToHome(): void{
     this.router.navigate(['home'])
@@ -19,8 +20,12 @@ export class NavbarComponent implements OnInit {
   {
     this.router.navigate(['categories']);
   }
+
+  user: any = {}
   
   ngOnInit(): void {
+    this.auth.user$.subscribe((userInfo) => {
+      this.user = userInfo;
+    })
   }
-
 }

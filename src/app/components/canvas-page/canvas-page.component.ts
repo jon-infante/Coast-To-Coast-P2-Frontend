@@ -76,7 +76,7 @@ export class CanvasPageComponent implements OnInit {
     }
     else{
       //Default wall post to post to
-      this.wallPostID = 2
+      this.wallPostID = 31
       this.pageLoaded = true;
     }
     });

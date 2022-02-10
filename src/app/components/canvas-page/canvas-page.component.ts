@@ -10,7 +10,6 @@ import { WallpostapiService } from 'src/app/services/wallpostapi.service';
 import { PlayerapiService } from 'src/app/services/playerapi.service';
 import { Router } from "@angular/router";
 import { AuthService } from '@auth0/auth0-angular';
-import { info } from 'console';
 
 
 @Component({

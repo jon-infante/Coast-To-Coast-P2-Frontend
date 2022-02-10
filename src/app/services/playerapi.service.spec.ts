@@ -28,9 +28,7 @@ describe('PlayerapiService', () => {
         AverageResult: 1,
         AverageScore: 1,
         Drawings: []
-
       }
-    ;
     
     spyOn(service, 'getLoginPlayer').and.returnValue(Promise.resolve(fakeData))
 

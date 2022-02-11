@@ -2,6 +2,7 @@
 <h3 align ="center">Challenge Google Vision to a game of pictionary!</h3>
 <p align="center">
   <br>
+  Choose a subject to draw, and we will submit your drawing to the Google Vision API and see how smart the machines really are. Your score will be based upon whether or not google can guess correctly. Compare your drawings and scores with our Droogle community!<br><br>
 Angular Web Application with backend written in C# using Google Vision API
 </p>
 

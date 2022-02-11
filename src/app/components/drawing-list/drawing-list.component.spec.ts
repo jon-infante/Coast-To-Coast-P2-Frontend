@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DrawingListComponent } from './drawing-list.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DrawingListComponent', () => {
   let component: DrawingListComponent;
@@ -8,6 +9,7 @@ describe('DrawingListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule, HttpClientTestingModule],
       declarations: [ DrawingListComponent ]
     })
     .compileComponents();

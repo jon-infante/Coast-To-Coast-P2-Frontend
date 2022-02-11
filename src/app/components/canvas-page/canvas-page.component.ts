@@ -10,7 +10,6 @@ import { WallpostapiService } from 'src/app/services/wallpostapi.service';
 import { PlayerapiService } from 'src/app/services/playerapi.service';
 import { Router } from "@angular/router";
 import { AuthService } from '@auth0/auth0-angular';
-import { info } from 'console';
 
 
 @Component({
@@ -76,7 +75,7 @@ export class CanvasPageComponent implements OnInit {
     }
     else{
       //Default wall post to post to
-      this.wallPostID = 2
+      this.wallPostID = 31
       this.pageLoaded = true;
     }
     });

@@ -25,6 +25,10 @@ export class AuthBtnComponent implements OnInit {
   loggedIn: boolean = false;
 
   ngOnInit(): void {
+    this.auth.isAuthenticated$.subscribe((isLoggedIn) =>
+    {
+      this.loggedIn = isLoggedIn;
+    })
     this.auth.user$.subscribe((userInfo)=> { 
       if (userInfo?.nickname==null) {
         console.log("nothing to show")

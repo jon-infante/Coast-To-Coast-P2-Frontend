@@ -1,3 +1,19 @@
+.title {
+  font-family: 'Fuzzy Bubbles';
+  color: aliceblue;
+  -webkit-text-stroke: 1px black;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #ffe44c9f;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+h1{
+  font-size: 75px;
+}
 
 body {
   display: flex;
@@ -46,4 +62,8 @@ body {
   text-align: center;
   font-size: 30px;
   font-family: segoe ui, helvetica, sans-serif;
+}
+
+.card{
+  margin: 20px;
 }

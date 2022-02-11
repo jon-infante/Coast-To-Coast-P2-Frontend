@@ -15,21 +15,6 @@
     font-size: 75px;
 }
 
-.main-container{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    margin-top: 30px;
-}
-
-.stats{
-    text-align: center;
-    margin-top: 20px;
-    font-family: 'Fuzzy Bubbles';
-}
-
 ul{
     list-style: none;
     padding-top: 15px;
@@ -41,18 +26,27 @@ li{
     margin-top: 20px;
     font-size: 25px;
 }
-
-.gallery{
-    width: 90%;
+.main-container{
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-content: center;  */
+    margin: 25px auto;
+    /* align-items: center; */
+    width: 100%;
 }
 
 .flex-child{
-    flex-grow: 1;
+    /* flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 5rem;
-    display: inline-flex;
+    display: inline-flex; */
     border: 1px solid rgba(0, 0, 0, 0.342);
     margin: 10px 10px;
+    width: 300px;
+    height: 275px;
+    object-fit: cover;
 }
 
 .drawing {

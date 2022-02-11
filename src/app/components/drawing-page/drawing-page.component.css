@@ -13,7 +13,7 @@ object-fit: cover;
     position: relative;
     font-size: 32px;
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid rgb(209, 243, 115);
 }
 .like-button::before {
     font-size: 2em;
@@ -22,7 +22,8 @@ object-fit: cover;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-25%, -60%);
+    margin-bottom: 5px;
 }
 .like-button::after {
     font-size: 2em;
@@ -31,11 +32,11 @@ object-fit: cover;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(-25%, -60%) scale(0);
     transition: transform 0.2s;
 }
 .like-button.liked::after {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-25%, -60%) scale(1.1);
 }
 
 .bdge {
@@ -66,11 +67,64 @@ object-fit: cover;
 }
 
 .header {
-    padding: 40px;
+    padding: 30px;
     text-align: center;
     background: #ffe44c9f;
-    color: white;
     font-size: 40px;
-    color: #00132C
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
+h1{
+    font-family: 'Fuzzy Bubbles';
+    color: white;
+    -webkit-text-stroke: 1px black;
+    font-size: 65px;
+}
+
+.content-container{
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.card{
+    margin: 0 50px;
+    flex-basis: 40rem;
+}
+
+.card-body{
+    background-color: #91e02b36;
+}
+.card-title{
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Fuzzy Bubbles';
+    color: white;
+    -webkit-text-stroke: 1px black;
+    font-size: 35px;
+}
+
+.comment-container{
+    margin-top: 50px;
+    flex-direction: row;
+    flex-basis: 25rem;
+    flex-shrink: 2;
+}
+
+.icon{
+    float: left;
+    margin-right: 10px;
+}
+
+form{
+    width: 700px;
+}
+
+input{
+    margin-right: 10px;
+}
+
+.comments1{
+    margin-top: 20px;
+}

@@ -12,6 +12,7 @@ nav
 a.navbar-brand{
     font-family: 'Fuzzy Bubbles';
     color: aliceblue;
+
     stroke: black;
     stroke-width: 10em;
 }

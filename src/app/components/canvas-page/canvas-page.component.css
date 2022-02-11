@@ -1,81 +1,119 @@
+.main-container{
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+}
+
 .draw {
     text-align: center;
-    font-size: 30px;
-    font-family: segoe ui, helvetica, sans-serif;
+    font-size: 50px;
+    font-family: 'Fuzzy Bubbles';
+    color: aliceblue;
+    -webkit-text-stroke: 1px black;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffe44c9f;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 100%;
 }
 
-.fullclick {
-    cursor: pointer;
-    margin: 1em 0;
-    padding: 0;
-    max-width: 25em;
+.canvas{
+    margin: 25px auto;
 }
-.fullclick li {
+
+.clear .btn {
     text-align:  center;
-    list-style: none;
-    padding-top: 12px;
-    padding-bottom: 8px;
-    background: #535151;
-    color: white;
+    background: #ff5c5c4d;
+    color: black;
     position: relative;
 }
-.fullclick li a.main::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: ' ';
-}
-.fullclick li:hover, .fullclick li:focus-within {
-    background:#7c7b7b;
-    box-shadow: 0px 3px 6px #000;
+
+.submit .btn{
+    background-color: #91e02b44;
 }
 
-.fullclick2 {
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    align-self: center;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
     cursor: pointer;
-    margin: 1em 0;
-    padding: 0;
-    max-width: 25em;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-right: 10px;
+    width: 15em;
 }
-.fullclick2 li {
-    text-align: center;
+
+.btn:hover {
+    box-shadow: rgba(102, 50, 154, .4) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+.btn:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.response-container{
+    display: flex;
+    justify-content: center;
+}
+
+.ul-container{
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    display: inline-block;
+    font-family: 'Fuzzy Bubbles';
+    font-size: 1.5rem;
+    line-height: 23px;
+    outline: none;
+    padding: 3rem 6rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    touch-action: manipulation;
+    margin: 50px auto;
+}
+
+li {
     list-style: none;
-    padding-top: 12px;
-    padding-bottom: 8px;
-    background: #1d8b22;
-    color: white;
-    position: relative;
-}
-.fullclick2 li a.main::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: ' ';
-}
-.fullclick2 li:hover, .fullclick li:focus-within {
-    background:#4ab933;
-    box-shadow: 0px 3px 6px #000;
+    padding: 5px;
 }
 
-h1 {
-    font-size: 3em;
-    margin: 0 0 .5em 0;
-}
-
-h2 {
-    font-size: 1.3em;
-    margin: 0 0 .5em 0;
-    font-family: Arial, sans-serif;
-}
-
-.header {
-    padding: 40px;
-    text-align: center;
-    background: #ffe44c9f;
-    color: white;
-    font-size: 40px;
-    color: #00132C
-  }

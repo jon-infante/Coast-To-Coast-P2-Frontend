@@ -1,55 +1,39 @@
-<div class="container">
+<div class="main-container">
     <div *ngIf="isLoaded; else notLoaded">
         <div class ="header">
-            {{currDrawing.PlayerName}}'s {{currDrawing.Keyword}} Drawing!
+            <h1>
+                {{currDrawing.PlayerName}}'s {{currDrawing.Keyword}} Drawing!
+            </h1>
         </div>
     </div>
     <ng-template #notLoaded>
     </ng-template>
-    <div class="row justify-content-center">
-        <div class ="col md 5">
-            <div class="card" style="width: 40rem;">
-                <img class="card-img" src="{{currDrawing.BucketImage}}"alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Google Response: {{currDrawing.GoogleResponse}}<br> Score: {{currDrawing.GoogleScore}}</h5>
-                        <div class="row justify-content-center">
-                            <div class="col sm 1">
-                                <button class="like-button" (click)="LikeDrawing(currDrawing)"[ngClass]="currDrawing.IsLiked ? 'liked' : ''"></button>
-                            </div>
-                            <p class="card-text"><br></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class ="col md 7">
-                <div class="d-flex justify-content-center row">
-                    <div class="d-flex flex-column col-md-12">
-                        <div class="d-flex flex-row align-items-center text-left comment-top">
-                        </div>
-                        <div class="coment-bottom bg-white p-2 px-4">
-                            <div class="d-flex flex-row add-comment-section mt-4 mb-4">
-                                <img class="img-fluid img-responsive rounded-circle mr-2" src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" width="38">
-                                <form [formGroup]="commentForm" (ngSubmit)="AddCommentToDrawing()">
-                                    <label for="message">
-                                    </label>
-                                    <input id="message" style="height:45px;font-size:14pt;width:250px" type="text" formControlName="message" placeholder="Add Comment">
-                                    <button class="btn btn-primary" type="submit">Comment</button>
-                                </form>
-
-                            </div>
-                            <div class="commented-section mt-2" *ngFor="let comment of allComments">
-                                <div class="d-flex flex-row align-items-center commented-user">
-                                    <h5 class="mr-2">{{comment.Username}}</h5><span class="dot mb-1"></span><h6 class="mb-1 ml-2">{{comment.Date}}</h6>
-                                </div>
-                                <div class="comment-text-sm"><span>{{comment.Message}}</span></div>
-                                <div class="reply-section">
-
-                                </div>
-                            </div>
-                           
-                            </div>
-                        </div>
-                    </div>
+    <div class="content-container">
+        <div class="card" style="width: 40rem;">
+            <img class="card-img" src="{{currDrawing.BucketImage}}"alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Google Response: {{currDrawing.GoogleResponse}}<br> Score: {{currDrawing.GoogleScore}}</h5>
+                <button class="like-button" (click)="LikeDrawing(currDrawing)"[ngClass]="currDrawing.IsLiked ? 'liked' : ''"></button>
             </div>
         </div>
-</div>
+        <div class ="comment-container">
+            <div class="">
+                <img class="icon" src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" width="38">
+                <form [formGroup]="commentForm" (ngSubmit)="AddCommentToDrawing()">
+                    <label for="message"></label>
+                    <input id="message" style="height:45px;font-size:14pt;width:250px" type="text" formControlName="message" placeholder="Add Comment">
+                    <button class="btn btn-primary" type="submit">Comment</button>
+                </form>
+            </div>
+            <div class="comments1" *ngFor="let comment of allComments">
+                <div class="">
+                    <h5 class="">{{comment.Username}}</h5><span class="dot"></span><h6 class="">{{comment.Date}}</h6>
+                </div>
+                <div class=""><span>{{comment.Message}}</span></div>
+                <div class="reply-section">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+                    </div>

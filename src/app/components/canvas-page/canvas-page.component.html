@@ -1,5 +1,9 @@
 <div *ngIf="pageLoaded; else pageNotLoaded">
-    <div class="draw">Draw {{keywordSelected}}</div> 
+    <div class="draw">
+        <h1>
+            Draw {{keywordSelected}}
+        </h1>
+    </div> 
 </div>
 
 <ng-template #pageNotLoaded>
@@ -24,12 +28,10 @@
             <div *ngFor="let response of googleResponse">
                 <div *ngIf="wallPost.Keyword.toLowerCase() != response.description.toLowerCase(); else notSelectedKeyword">
                     <div class ="fullclick">
-                        <ul>
                             <li>
                                 {{response.description}} | 
                                 {{response.score}}%
                             </li>
-                        </ul>
                     </div>
                 </div>
                     <ng-template #notSelectedKeyword>
